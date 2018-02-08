@@ -9,7 +9,7 @@ namespace HashCodePreparation
     public class Endpoint
     {
         public int LantencyToDataCenter { get; set; }
-        Dictionary<int, int> LantencyToCacheCenter;//index is cache center, value is lantency
+        public Dictionary<int, int> LantencyToCacheCenter;//index is cache center, value is lantency
     }
 
     public class Request
