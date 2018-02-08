@@ -32,10 +32,14 @@ namespace HashCodePreparation
                     double totalSaved = 0;
                     foreach (var request in _input.Requests)
                     {
-                        var lagToCacheCenter = _input.Endpoints[request.NumEndpoint].LantencyToCacheCenter[iCacheCenter];
-                        var lagToDataCenter = _input.Endpoints[request.NumEndpoint].LantencyToDataCenter;
-                        var savedTime = lagToDataCenter - lagToCacheCenter;
-                        totalSaved += savedTime * request.NumRequests;
+                        if (request.NumVideo == iMovie 
+                            && _input.Endpoints[request.NumEndpoint].LantencyToCacheCenter.ContainsKey(iCacheCenter))
+                        {
+                            var lagToCacheCenter = _input.Endpoints[request.NumEndpoint].LantencyToCacheCenter[iCacheCenter];
+                            var lagToDataCenter = _input.Endpoints[request.NumEndpoint].LantencyToDataCenter;
+                            var savedTime = lagToDataCenter - lagToCacheCenter;
+                            totalSaved += savedTime * request.NumRequests;
+                        }
                     }
                     var value = totalSaved / _input.Movies[iMovie];
 
