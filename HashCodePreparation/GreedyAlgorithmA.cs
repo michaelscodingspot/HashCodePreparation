@@ -20,6 +20,36 @@ namespace HashCodePreparation
             _input = input;
             //Step 1: calc permutation from cache & video as key to benefit / MB
             FillSaves();
+
+            //Step 2: Fill cache centers by index
+            Result res = new Result();
+            res.Data = new Dictionary<int, List<int>>();
+            for (int iCacheCenter = 0; iCacheCenter < _input.CacheCenterSize; iCacheCenter++)
+            {
+                List<int> moviesInCache = new List<int>();
+
+                int spaceSoFar = 0;
+                
+                IEnumerable<int> moviesBySave = GetMoviesThatSaveMostForCacheCenter(iCacheCenter);
+                foreach (var iMovieIndex in moviesBySave)
+                {
+                    int newSpace = spaceSoFar + _input.Movies[iMovieIndex];
+                    if (newSpace <= _input.CacheCenterSize)
+                        moviesInCache.Add(iMovieIndex);
+                }
+                
+                res.Data.Add(iCacheCenter, moviesInCache);
+
+            }
+
+            return res;
+        }
+
+        private IEnumerable<int> GetMoviesThatSaveMostForCacheCenter(int iCacheCenter)
+        {
+            var savesForCacheCenter = _saves.Where(s => s.Key.Key == iCacheCenter).
+                Select(save => new KeyValuePair<int, double>(save.Key.Value, save.Value)).OrderByDescending(elem => elem.Value);
+            return savesForCacheCenter.Select(s => s.Key);
         }
 
         private void FillSaves()
