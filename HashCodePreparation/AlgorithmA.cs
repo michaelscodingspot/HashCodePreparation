@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace HashCodePreparation
 {
-    public class Result
+    public class AlgorithmA : IAlgorithm
     {
-        ////index is cache center. Value is list of video indexes
-        //public Dictionary<int, List<int>> Data { get; set; }
+
+        public Result Calc(Input input)
+        {
+            return null;
+        }
+
     }
 }
