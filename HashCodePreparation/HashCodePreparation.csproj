@@ -73,6 +73,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm.cs" />
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="InputParser.cs" />

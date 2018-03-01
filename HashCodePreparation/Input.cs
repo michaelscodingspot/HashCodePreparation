@@ -20,18 +20,19 @@ namespace HashCodePreparation
 
     public class Ride
     {
-        public Ride(int xFrom, int yFrom, int xTo, int yTo, int earliestStart, int latestFinish)
+        public Ride(int xFrom, int yFrom, int xTo, int yTo, int earliestStart, int latestFinish, int index)
         {
             RideFrom = new Point(xFrom, yFrom);
             RideTo = new Point(xTo, yTo);
             EarliestStart = earliestStart;
             LatestFinish = latestFinish;
+            Index = index;
         }
         public Point RideFrom { get; set; }
         public Point RideTo { get; set; }
         public int EarliestStart { get; set; }
         public int LatestFinish { get; set; }
-
+        public int Index { get; private set; }
     }
     public class Input
     {

@@ -11,15 +11,36 @@ namespace HashCodePreparation
         static void Main(string[] args)
         {
             //var input = ParseInput(args);
-            ////var input = CreateFakeInput();
+            //var input = CreateFakeInput();
 
-            //var algorithm = SelectAlgorithm(input);
+            var input = MockData();
 
-            //var result = algorithm.Calc(input);
-            var output = CreateOutput(null);
+            var algorithm = new Algorithm();//SelectAlgorithm(input);
 
-            var text = SerializeOutput(output);
-            DeliverOutput(text);
+            var result = algorithm.Calc(input);
+            //var output = CreateOutput(result);
+
+            //var text = SerializeOutput(output);
+            //DeliverOutput(text);
+        }
+
+        private static Input MockData()
+        {
+            return new Input()
+            {
+                Bonus = 2,
+                Columens = 4,
+                Rows = 3,
+                RideNumber = 3,
+                Steps = 10,
+                Vehicales = 2,
+                Rides = new List<Ride>()
+                {
+                    new Ride(0, 0, 1, 3, 2, 9, 0),
+                    new Ride(1,2,1,0, 0, 9, 1),
+                    new Ride(2,0,2,2, 0, 9, 2),
+                }
+            };
         }
 
         static Input ParseInput(string[] args)
