@@ -15,9 +15,9 @@ namespace HashCodePreparation
 
             //var input = MockData();
 
-            var algorithm = new Algorithm();//SelectAlgorithm(input);
+            var algorithm = SelectAlgorithm(input);
 
-            var result = algorithm.Calc(input);
+
             //var output = CreateOutput(result);
 
             //var text = SerializeOutput(output);
@@ -50,7 +50,7 @@ namespace HashCodePreparation
 
         static IAlgorithm SelectAlgorithm(Input input)
         {
-            throw new NotImplementedException();
+            return new Algorithm();
         }
 
 
