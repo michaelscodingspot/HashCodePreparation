@@ -18,6 +18,12 @@ namespace HashCodePreparation
             var result = algorithm.Calc(input);
             var output = CreateOutput(result);
             var serialized = SerializeOutput(output);
+
+            var scoreCalculator = new ScoreCalculator();
+
+            var score = scoreCalculator.Calculate(input, result);
+            Console.WriteLine($"Score is {score}");
+
             DeliverOutput(serialized, Path.Combine(Path.GetDirectoryName(filename), "result.txt"));
         }
 
@@ -37,7 +43,7 @@ namespace HashCodePreparation
 
         static string SerializeOutput(Output output)
         {
-            return output.Result.Select((list, index) => $"{index} {list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}").Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
+            return output.Result.Select((list, index) => $"{list.Count} {list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}").Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
         }
 
         static void DeliverOutput(string output, string path)
