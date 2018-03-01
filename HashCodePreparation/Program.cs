@@ -50,7 +50,7 @@ static IAlgorithm SelectAlgorithm(Input input)
         {
             return new Output
             {
-                Result = result.RidesForAllVehicles.OrderBy(pair => pair.Key).Select(pair => pair.Value.RidesTaken.Select(ride => ride.Index).ToList()).ToList()
+                Result = result.RidesForAllVehicles.OrderBy(pair => pair.Key).Select(pair => pair.Value.RidesTaken.Select(ride => ride.Index + 1).ToList()).ToList()
             };
         }
 
@@ -62,12 +62,6 @@ static IAlgorithm SelectAlgorithm(Input input)
         static void DeliverOutput(string output)
         {
             Console.WriteLine(output);
-        }
-
-        // Mocking
-        static Input CreateFakeInput()
-        {
-            throw new NotImplementedException();
         }
     }
 }
