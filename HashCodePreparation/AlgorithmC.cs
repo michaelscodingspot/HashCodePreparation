@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HashCodePreparation
 {
-    public class AlgorithmB : IAlgorithm
+    public class AlgorithmC : IAlgorithm
     {
         private Input _input;
 
@@ -38,21 +38,57 @@ namespace HashCodePreparation
 
         private IEnumerable<Ride> GetBestRides(int iVehicle, List<Ride> rides)
         {
+            return GetBestRidesInternal(iVehicle, rides, _input.Steps);
+        }
+
+        private IEnumerable<Ride> GetBestRidesInternal(int iVehicle, List<Ride> rides)
+        {
             int time = 0;
             int x = 0;
             int y = 0;
             while(time < _input.Steps)
             {
-                Ride ride = GetBestRide(time, y, x, rides, out int arrival);
-                
+                //Ride ride = GetBestRide(time, y, x, rides, out int arrival);
+                List<List<Ride>> possibleRides = GetAllPossibleRidesSet(iVehicle, time, x, y, rides, 3);
+                var bestScore = 0;
+                var bestScoreIndex = 0;
+                foreach (var possibleRideSet in possibleRides)
+                {
+
+                }
+                var bestSet = possibleRides[bestScoreIndex];
+
+                var ride = bestSet.Count == 0 ? null : bestSet[0];
+                //var scoring = GetBestScoring()
+                //foreach (var ride in rides)
+                //{
+                    
+                //    foreach (var possibleRide in possibleRides)
+                //    {
+                //        var ridesSoFar = new List<Ride>(rides);
+                //        ridesSoFar.Remove(possibleRide);
+                //        var 
+                //    }
+                //}
+
+
                 if (ride == null)
                     yield break;
-                rides.Remove(ride);
                 yield return ride;
                 x = ride.RideTo.X;
                 y = ride.RideTo.Y;
                 time += arrival;
             }
+        }
+
+        private List<List<Ride>> GetAllPossibleRidesSet(int iVehicle, int time, int x, int y, List<Ride> rides, int numOfRidesAhead)
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<Ride> GetPossibleRides(int time, int y, int x, List<Ride> rides)
+        {
+            throw new NotImplementedException();
         }
 
         private Ride GetBestRide(int time, int x, int y, List<Ride> rides, out int arrival)
