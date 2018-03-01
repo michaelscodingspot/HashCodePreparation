@@ -56,17 +56,24 @@ namespace HashCodePreparation
 
         static Output CreateOutput(Result result)
         {
-            throw new NotImplementedException();
+            return new Output
+            {
+                Result = new List<List<int>>
+                {
+                    new List<int>{ 1, 0},
+                    new List<int>{ 2, 2, 1}
+                }
+            };
         }
 
         static string SerializeOutput(Output output)
         {
-            throw new NotImplementedException();
+            return output.Result.Select(list => list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")).Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
         }
 
         static void DeliverOutput(string output)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(output);
         }
 
         // Mocking

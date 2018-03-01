@@ -76,6 +76,7 @@
     <Compile Include="Algorithm.cs" />
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="Input.cs" />
+    <Compile Include="InputParser.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

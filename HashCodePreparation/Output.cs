@@ -8,5 +8,6 @@ namespace HashCodePreparation
 {
     public class Output
     {
+        public List<List<int>> Result { get; set; }
     }
 }

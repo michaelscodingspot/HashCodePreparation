@@ -36,10 +36,10 @@ namespace HashCodePreparation
     }
     public class Input
     {
-        //public Input(string rules, string[] rides)
-        //{
+        public Input(int rows, int columens, int vehicales, int rideNumber, int bonus, int steps, List<Ride> Rides)
+        {
 
-        //}
+        }
         public int Rows { get; set; }
         public int Columens { get; set; }
         public int Vehicales { get; set; }
