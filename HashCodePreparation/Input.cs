@@ -8,5 +8,6 @@ namespace HashCodePreparation
 {
     public class Input
     {
+
     }
 }
