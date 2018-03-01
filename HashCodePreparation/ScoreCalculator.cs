@@ -15,7 +15,7 @@ namespace HashCodePreparation
 
         public int Calculate(Result result)
         {
-            
+            return 0;
         }
     }
 }
