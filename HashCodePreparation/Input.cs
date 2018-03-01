@@ -38,12 +38,12 @@ namespace HashCodePreparation
     {
         public Input(int rows, int columens, int vehicales, int rideNumber, int bonus, int steps, List<Ride> rides)
         {
-            Rows = Rows;
-            Columens = Columens;
-            Vehicales = Vehicales;
-            RideNumber = RideNumber;
-            Bonus = Bonus;
-            Steps = Steps;
+            Rows = rows;
+            Columens = columens;
+            Vehicales = vehicales;
+            RideNumber = rideNumber;
+            Bonus = bonus;
+            Steps = steps;
             Rides = rides;
 
         }
