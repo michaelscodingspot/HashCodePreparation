@@ -41,6 +41,7 @@ namespace HashCodePreparation
                     else if (step < ride.EarliestStart)
                     {                        
                         step += Math.Abs(ride.EarliestStart - step);
+                        carScore += input.Bonus;
                     }
 
                     var rideDistance = Distance(ride.RideFrom, ride.RideTo);
