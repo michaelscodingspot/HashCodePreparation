@@ -39,7 +39,7 @@ namespace HashCodePreparation
         {
             return new Output
             {
-                Result = result.RidesForAllVehicles.OrderBy(pair => pair.Key).Select(pair => pair.Value.RidesTaken.Select(ride => ride.Index + 1).ToList()).ToList()
+                Result = result.RidesForAllVehicles.OrderBy(pair => pair.Key).Select(pair => pair.Value.RidesTaken.Select(ride => ride.Index).ToList()).ToList()
             };
         }
 
