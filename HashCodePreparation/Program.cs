@@ -11,7 +11,7 @@ namespace HashCodePreparation
         static void Main(string[] args)
         {
             var input = ParseInput(args);
-            var algorithm = ProvideAlgorithm(input);
+            var algorithm = SelectAlgorithm(input);
 
             var result = algorithm.Calc(input);
             var output = CreateOutput(result);
@@ -25,7 +25,7 @@ namespace HashCodePreparation
             throw new NotImplementedException();
         }
 
-        static IAlgorithm ProvideAlgorithm(Input input)
+        static IAlgorithm SelectAlgorithm(Input input)
         {
             throw new NotImplementedException();
         }
