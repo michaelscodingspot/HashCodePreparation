@@ -30,7 +30,7 @@ namespace HashCodePreparation
 
         static IAlgorithm SelectAlgorithm(Input input)
         {
-            return new Algorithm();
+            return new AlgorithmB();
         }
 
         static Output CreateOutput(Result result)
