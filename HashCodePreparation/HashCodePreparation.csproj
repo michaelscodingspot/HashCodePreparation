@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="AlgorithmB.cs" />
     <Compile Include="Algorithm.cs" />
+    <Compile Include="AlgorithmC.cs" />
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="InputParser.cs" />

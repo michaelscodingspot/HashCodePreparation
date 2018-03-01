@@ -12,6 +12,9 @@ namespace HashCodePreparation
     {
         static void Main(string[] args)
         {
+            args = new string[2];
+            args[0] = @"c:\Temp\inputB.txt";
+            args[1] = @"c:\Temp\result.txt";
             string filename = args[0];
             var outputFileName = args[1];
             var lines = File.ReadAllText(filename);
@@ -32,7 +35,7 @@ namespace HashCodePreparation
 
         static IAlgorithm SelectAlgorithm(Input input)
         {
-            return new AlgorithmB();
+            return new AlgorithmC();
         }
 
         static Output CreateOutput(Result result)
