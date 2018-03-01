@@ -27,9 +27,9 @@ namespace HashCodePreparation
 
             //var input = MockData();
 
-            var algorithm = new Algorithm();//SelectAlgorithm(input);
+            var algorithm = SelectAlgorithm(input);
 
-            var result = algorithm.Calc(input);
+
             //var output = CreateOutput(result);
 
             //var text = SerializeOutput(output);
@@ -56,16 +56,16 @@ namespace HashCodePreparation
         //}
 
         
+static IAlgorithm SelectAlgorithm(Input input)
+        {
+            return new Algorithm();
+        }
 
         static Output CreateOutput(Result result)
         {
             return new Output
             {
-                Result = new List<List<int>>
-                {
-                    new List<int>{ 1, 0},
-                    new List<int>{ 2, 2, 1}
-                }
+                Result = result.RidesForAllVehicles.OrderBy(pair => pair.Key).Select(pair => pair.Value.RidesTaken.Select(ride => ride.Index).ToList()).ToList()
             };
         }
 
