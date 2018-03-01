@@ -8,6 +8,6 @@ namespace HashCodePreparation
 {
     public interface IAlgorithm
     {
-        Result Calc(Input input);
+        Result Calc(Input input); 
     }
 }

@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace HashCodePreparation
 {
-    class Program
+    class Program   
     {
         static void Main(string[] args)
         {
             var input = ParseInput(args);
+            //var input = CreateFakeInput();
+
             var algorithm = SelectAlgorithm(input);
 
             var result = algorithm.Calc(input);
@@ -30,6 +32,7 @@ namespace HashCodePreparation
             throw new NotImplementedException();
         }
 
+
         static Output CreateOutput(Result result)
         {
             throw new NotImplementedException();
@@ -41,6 +44,12 @@ namespace HashCodePreparation
         }
 
         static void DeliverOutput(string output)
+        {
+            throw new NotImplementedException();
+        }
+
+        // Mocking
+        static Input CreateFakeInput()
         {
             throw new NotImplementedException();
         }
