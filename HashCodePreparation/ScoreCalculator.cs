@@ -9,11 +9,6 @@ namespace HashCodePreparation
 {
     public class ScoreCalculator
     {
-        public ScoreCalculator()
-        {
-            
-        }
-
         public long Calculate(Input input, Result result)
         {
             var score = 0L;
@@ -36,19 +31,22 @@ namespace HashCodePreparation
                     if (0 < distance)
                     {
                         step += distance;
+                        position = (ride.RideFrom.X, ride.RideFrom.Y);
                     }
 
                     if (step == ride.EarliestStart)
                     {
                         carScore += input.Bonus;
                     }
-                    else
-                    {
+                    else if (step < ride.EarliestStart)
+                    {                        
                         step += Math.Abs(ride.EarliestStart - step);
+                        carScore += input.Bonus;
                     }
 
                     var rideDistance = Distance(ride.RideFrom, ride.RideTo);
                     step += rideDistance;
+                    position = (ride.RideTo.X, ride.RideTo.Y);
 
                     if (step <= input.Steps)
                     {
