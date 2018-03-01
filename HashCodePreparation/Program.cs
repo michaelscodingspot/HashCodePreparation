@@ -19,7 +19,7 @@ namespace HashCodePreparation
             //    "2 0 2 2 0 9",
             //};
 
-            var lines = File.ReadAllText(@"C:\Temp\inputC.txt");
+            var lines = File.ReadAllText(@"C:\Users\moaid\Downloads\c_no_hurry.in");
             //string inputLines = string.Join("\n", lines);
 
             var input = InputParser.ParseInput(lines);
@@ -28,12 +28,12 @@ namespace HashCodePreparation
             //var input = MockData();
 
             var algorithm = SelectAlgorithm(input);
+            var result = algorithm.Calc(input);
 
+            var output = CreateOutput(result);
 
-            //var output = CreateOutput(result);
-
-            //var text = SerializeOutput(output);
-            //DeliverOutput(text);
+            var text = SerializeOutput(output);
+            DeliverOutput(text);
         }
 
         //private static Input MockData()
@@ -56,7 +56,7 @@ namespace HashCodePreparation
         //}
 
         
-static IAlgorithm SelectAlgorithm(Input input)
+        static IAlgorithm SelectAlgorithm(Input input)
         {
             return new Algorithm();
         }
@@ -77,12 +77,6 @@ static IAlgorithm SelectAlgorithm(Input input)
         static void DeliverOutput(string output)
         {
             Console.WriteLine(output);
-        }
-
-        // Mocking
-        static Input CreateFakeInput()
-        {
-            throw new NotImplementedException();
         }
     }
 }
