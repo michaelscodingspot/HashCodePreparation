@@ -36,7 +36,7 @@ namespace HashCodePreparation
     }
     public class Input
     {
-        public Input(int rows, int columens, int vehicales, int rideNumber, int bonus, int steps, List<Ride> Rides)
+        public Input(int rows, int columens, int vehicales, int rideNumber, int bonus, int steps, List<Ride> Rides, int index)
         {
 
         }
