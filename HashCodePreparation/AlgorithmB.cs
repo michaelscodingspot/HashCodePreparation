@@ -44,8 +44,10 @@ namespace HashCodePreparation
             while(time < _input.Steps)
             {
                 Ride ride = GetBestRide(time, y, x, rides, out int arrival);
+                
                 if (ride == null)
                     yield break;
+                rides.Remove(ride);
                 yield return ride;
                 x = ride.RideTo.X;
                 y = ride.RideTo.Y;
