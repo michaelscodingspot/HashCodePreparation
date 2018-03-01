@@ -47,12 +47,12 @@ namespace HashCodePreparation
                         step += Math.Abs(ride.EarliestStart - step);
                     }
 
-                    var rideDistance = 
-                    step += Distance(ride.RideFrom, ride.RideTo);
+                    var rideDistance = Distance(ride.RideFrom, ride.RideTo);
+                    step += rideDistance;
 
                     if (step <= input.Steps)
                     {
-                        carScore += 
+                        carScore += rideDistance;
                     }
                 }
 
