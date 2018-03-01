@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,13 +13,20 @@ namespace HashCodePreparation
         static void Main(string[] args)
         {
             string filename = args[0];
+            var outputFileName = args[1];
             var lines = File.ReadAllText(filename);
             var input = InputParser.ParseInput(lines);
             var algorithm = SelectAlgorithm(input);
             var result = algorithm.Calc(input);
             var output = CreateOutput(result);
             var serialized = SerializeOutput(output);
-            DeliverOutput(serialized, Path.Combine(Path.GetDirectoryName(filename), "result.txt"));
+
+            var scoreCalculator = new ScoreCalculator();
+
+            var score = scoreCalculator.Calculate(input, result);
+            Debug.WriteLine($"Score is {score}");
+
+            DeliverOutput(serialized, outputFileName);
         }
 
 
@@ -37,7 +45,7 @@ namespace HashCodePreparation
 
         static string SerializeOutput(Output output)
         {
-            return output.Result.Select((list, index) => $"{index} {list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}").Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
+            return output.Result.Select((list, index) => $"{list.Count} {list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}").Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
         }
 
         static void DeliverOutput(string output, string path)
