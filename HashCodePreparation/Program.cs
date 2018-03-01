@@ -10,16 +10,33 @@ namespace HashCodePreparation
     {
         static void Main(string[] args)
         {
-            var mockInput = new Input();
-            //Enter mock input here
+            var input = CreateInput(args);
+            var algorithm = ProvideAlgorithm(input);
 
-            var alg = new AlgorithmA();
-            var result = alg.Calc(mockInput);
-            
-            //debug result here and check it's really correct
+            var result = algorithm.Calc(input);
+            var output = CreateOutput(result);
 
-
+            DeliverOutput(output);
         }
 
+        static Input CreateInput(string[] args)
+        {
+            throw new NotImplementedException();
+        }
+
+        static IAlgorithm ProvideAlgorithm(Input input)
+        {
+            throw new NotImplementedException();
+        }
+
+        static Output CreateOutput(Result result)
+        {
+            throw new NotImplementedException();
+        }
+
+        static void DeliverOutput(Output output)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
