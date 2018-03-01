@@ -87,16 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Inputs\a_example.in" />
-    <None Include="Inputs\b_should_be_easy.in" />
-    <None Include="Inputs\c_no_hurry.in" />
-    <None Include="Inputs\d_metropolis.in" />
-    <None Include="Inputs\e_high_bonus.in" />
     <None Include="packages.config" />
-    <None Include="Run.bat" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Outputs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
