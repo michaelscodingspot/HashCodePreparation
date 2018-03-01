@@ -43,7 +43,7 @@ namespace HashCodePreparation
         
 static IAlgorithm SelectAlgorithm(Input input)
         {
-            return new Algorithm();
+            return new AlgorithmB();
         }
 
         static Output CreateOutput(Result result)
@@ -56,7 +56,7 @@ static IAlgorithm SelectAlgorithm(Input input)
 
         static string SerializeOutput(Output output)
         {
-            return output.Result.Select(list => list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")).Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
+            return output.Result.Select((list, index) => $"{index} {list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}").Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
         }
 
         static void DeliverOutput(string output)
