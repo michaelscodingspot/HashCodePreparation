@@ -10,16 +10,17 @@ namespace HashCodePreparation
     {
         static void Main(string[] args)
         {
-            var input = CreateInput(args);
+            var input = ParseInput(args);
             var algorithm = ProvideAlgorithm(input);
 
             var result = algorithm.Calc(input);
             var output = CreateOutput(result);
 
-            DeliverOutput(output);
+            var text = SerializeOutput(output);
+            DeliverOutput(text);
         }
 
-        static Input CreateInput(string[] args)
+        static Input ParseInput(string[] args)
         {
             throw new NotImplementedException();
         }
@@ -34,7 +35,12 @@ namespace HashCodePreparation
             throw new NotImplementedException();
         }
 
-        static void DeliverOutput(Output output)
+        static string SerializeOutput(Output output)
+        {
+            throw new NotImplementedException();
+        }
+
+        static void DeliverOutput(string output)
         {
             throw new NotImplementedException();
         }
