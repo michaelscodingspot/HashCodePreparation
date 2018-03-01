@@ -32,6 +32,7 @@ namespace HashCodePreparation
             throw new NotImplementedException();
         }
 
+
         static Output CreateOutput(Result result)
         {
             throw new NotImplementedException();
