@@ -11,6 +11,8 @@ namespace HashCodePreparation
         static void Main(string[] args)
         {
             var input = ParseInput(args);
+            //var input = CreateFakeInput();
+
             var algorithm = SelectAlgorithm(input);
 
             var result = algorithm.Calc(input);
@@ -42,6 +44,12 @@ namespace HashCodePreparation
         }
 
         static void DeliverOutput(string output)
+        {
+            throw new NotImplementedException();
+        }
+
+        // Mocking
+        static Input CreateFakeInput()
         {
             throw new NotImplementedException();
         }
