@@ -10,17 +10,11 @@ namespace HashCodePreparation
     {
         private Input _input;
 
-        
-
         public Result Calc(Input input)
         {
             _input = input;
             var allRides = new List<Ride>(input.Rides);
-
-            //var allRides = input.Rides.OrderBy(r => r.EarliestStart).ToList();
-
             Result result = new Result();
-            //var allRides = input.Rides.ToDictionary(ride => ride.)
             for (int iVehicle = 0; iVehicle < input.Vehicales; iVehicle++)
             {
                 List<Ride> rides = GetBestRides(iVehicle, allRides).ToList();
@@ -58,7 +52,7 @@ namespace HashCodePreparation
             arrival = 0;
             if (rides.Count == 0)
                 return null;
-            Ride result = null;//rides.FirstOrDefault();
+            Ride result = null;
             int closestDistance = 1000000;
             foreach (var ride in rides)
             {
@@ -71,7 +65,6 @@ namespace HashCodePreparation
 
                 bool isBonus = time + distanceToFrom <= ride.EarliestStart;
                 int bonus = isBonus ? _input.Bonus : 0;
-                //int score = bonus + 
                 var closestDistance1 = distanceToFrom;
                 if (closestDistance1 < closestDistance)
                 {
