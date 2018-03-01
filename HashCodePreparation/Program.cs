@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,21 @@ namespace HashCodePreparation
     {
         static void Main(string[] args)
         {
-            //var input = ParseInput(args);
+            //args = new string[]
+            //{
+            //    "3 4 2 3 2 10",
+            //    "0 0 1 3 2 9",
+            //    "1 2 1 0 0 9",
+            //    "2 0 2 2 0 9",
+            //};
+
+            var lines = File.ReadAllText(@"C:\Temp\inputC.txt");
+            //string inputLines = string.Join("\n", lines);
+
+            var input = InputParser.ParseInput(lines);
             //var input = CreateFakeInput();
 
-            var input = MockData();
+            //var input = MockData();
 
             var algorithm = new Algorithm();//SelectAlgorithm(input);
 
@@ -24,35 +36,26 @@ namespace HashCodePreparation
             //DeliverOutput(text);
         }
 
-        private static Input MockData()
-        {
-            return new Input()
-            {
-                Bonus = 2,
-                Columens = 4,
-                Rows = 3,
-                RideNumber = 3,
-                Steps = 10,
-                Vehicales = 2,
-                Rides = new List<Ride>()
-                {
-                    new Ride(0, 0, 1, 3, 2, 9, 0),
-                    new Ride(1,2,1,0, 0, 9, 1),
-                    new Ride(2,0,2,2, 0, 9, 2),
-                }
-            };
-        }
+        //private static Input MockData()
+        //{
+        //    return new Input()
+        //    {
+        //        Bonus = 2,
+        //        Columens = 4,
+        //        Rows = 3,
+        //        RideNumber = 3,
+        //        Steps = 10,
+        //        Vehicales = 2,
+        //        Rides = new List<Ride>()
+        //        {
+        //            new Ride(0, 0, 1, 3, 2, 9, 0),
+        //            new Ride(1,2,1,0, 0, 9, 1),
+        //            new Ride(2,0,2,2, 0, 9, 2),
+        //        }
+        //    };
+        //}
 
-        static Input ParseInput(string[] args)
-        {
-            throw new NotImplementedException();
-        }
-
-        static IAlgorithm SelectAlgorithm(Input input)
-        {
-            throw new NotImplementedException();
-        }
-
+        
 
         static Output CreateOutput(Result result)
         {
