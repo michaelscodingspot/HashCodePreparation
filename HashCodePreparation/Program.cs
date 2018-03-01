@@ -31,13 +31,13 @@ namespace HashCodePreparation
         {
             return new Output
             {
-                Result = result.RidesForAllVehicles.OrderBy(pair => pair.Key).Select(pair => pair.Value.RidesTaken.Select(ride => ride.Index + 1).ToList()).ToList()
+                Result = result.RidesForAllVehicles.OrderBy(pair => pair.Key).Select(pair => pair.Value.RidesTaken.Select(ride => ride.Index).ToList()).ToList()
             };
         }
 
         static string SerializeOutput(Output output)
         {
-            return output.Result.Select((list, index) => $"{index} {list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}").Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
+            return output.Result.Select((list, index) => $"{list.Count} {list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")}").Aggregate((a, b) => $"{a}\n{b}").TrimEnd();
         }
 
         static void DeliverOutput(string output, string path)
