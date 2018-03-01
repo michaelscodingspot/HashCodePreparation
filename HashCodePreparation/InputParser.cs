@@ -24,7 +24,7 @@ namespace HashCodePreparation
         private static Input ParseInput(string line, IEnumerable<string> rideLines) {
             var mainInput = ParseLine(line);
             
-            var rides = rideLines.Select(l =>
+            var rides = rideLines.Where(l => !string.IsNullOrWhiteSpace(l)).Select(l =>
             {
                 var parsedLine = ParseLine(l);
                 return new Ride(parsedLine[0], parsedLine[1], parsedLine[2], parsedLine[3], parsedLine[4], parsedLine[5]);

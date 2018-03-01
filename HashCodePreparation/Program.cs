@@ -10,13 +10,13 @@ namespace HashCodePreparation
     {
         static void Main(string[] args)
         {
-            var input = ParseInput(args);
-            //var input = CreateFakeInput();
+            //var input = ParseInput(args);
+            ////var input = CreateFakeInput();
 
-            var algorithm = SelectAlgorithm(input);
+            //var algorithm = SelectAlgorithm(input);
 
-            var result = algorithm.Calc(input);
-            var output = CreateOutput(result);
+            //var result = algorithm.Calc(input);
+            var output = CreateOutput(null);
 
             var text = SerializeOutput(output);
             DeliverOutput(text);
@@ -35,17 +35,24 @@ namespace HashCodePreparation
 
         static Output CreateOutput(Result result)
         {
-            throw new NotImplementedException();
+            return new Output
+            {
+                Result = new List<List<int>>
+                {
+                    new List<int>{ 1, 0},
+                    new List<int>{ 2, 2, 1}
+                }
+            };
         }
 
         static string SerializeOutput(Output output)
         {
-            throw new NotImplementedException();
+            return output.Result.Select(list => list.Select(i => i.ToString()).Aggregate((a, b) => $"{a} {b}")).Aggregate((a, b) => $"{a}\n{b}");
         }
 
         static void DeliverOutput(string output)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(output);
         }
 
         // Mocking
