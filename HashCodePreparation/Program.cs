@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace HashCodePreparation
         static void Main(string[] args)
         {
             string filename = args[0];
+            var outputFileName = args[1];
             var lines = File.ReadAllText(filename);
             var input = InputParser.ParseInput(lines);
             var algorithm = SelectAlgorithm(input);
@@ -22,9 +24,9 @@ namespace HashCodePreparation
             var scoreCalculator = new ScoreCalculator();
 
             var score = scoreCalculator.Calculate(input, result);
-            Console.WriteLine($"Score is {score}");
+            Debug.WriteLine($"Score is {score}");
 
-            DeliverOutput(serialized, Path.Combine(Path.GetDirectoryName(filename), "result.txt"));
+            DeliverOutput(serialized, outputFileName);
         }
 
 
